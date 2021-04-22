@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Monkvetica';
+  src: url('./files/HelveticaNowTextW05-XBold.woff2') format('woff2'),
+    url('./files/HelveticaNowTextW05-XBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Monkvetica';
+  src: url('./files/HelveticaNowforMonks-ExtXBd.woff2') format('woff2'),
+    url('./files/HelveticaNowforMonks-ExtXBd.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  font-stretch: expanded;
+}
+
+@font-face {
+  font-family: 'Monkvetica';
+  src: url('./files/HelveticaNowforMonks-Bold.woff2') format('woff2'),
+    url('./files/HelveticaNowforMonks-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Monkvetica';
+  src: url('./files/HelveticaNowforMonks.woff2') format('woff2'),
+    url('./files/HelveticaNowforMonks.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Monkvetica';
+  src: url('./files/HelveticaNowforMonks-Ext.woff2') format('woff2'),
+    url('./files/HelveticaNowforMonks-Ext.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  font-stretch: expanded;
+}
+
+@font-face {
+  font-family: 'Monkvetica';
+  src: url('./files/HelveticaNowforMonks-Light.woff2') format('woff2'),
+    url('./files/HelveticaNowforMonks-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
