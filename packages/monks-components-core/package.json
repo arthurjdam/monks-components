@@ -1,5 +1,5 @@
 {
-  "name": "monks-components-core",
+  "name": "@arthurjdam/monks-components-core",
   "version": "0.0.1",
   "description": "> TODO: description",
   "author": "arthurjdam <arthurjdam@gmail.com>",
@@ -15,7 +15,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arthurjdam/monks-components.git"
+    "url": "git+https://github.com/arthurjdam/monks-components.git",
+    "directory": "packages/monks-components-core"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",

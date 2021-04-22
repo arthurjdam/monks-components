@@ -1,5 +1,5 @@
 {
-  "name": "monks-components-font",
+  "name": "@arthurjdam/monks-components-font",
   "version": "0.0.1",
   "description": "> TODO: description",
   "author": "arthurjdam <arthurjdam@gmail.com>",
@@ -15,7 +15,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arthurjdam/monks-components.git"
+    "url": "git+https://github.com/arthurjdam/monks-components.git",
+    "directory": "packages/monks-components/font"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
