@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Button } from '@arthurjdam/monks-components-core';
+import { HelloWorld } from '@arthurjdam/monks-components-core';
 
 export default function Home(): React.ReactElement {
   return (
@@ -8,7 +8,7 @@ export default function Home(): React.ReactElement {
         <title>Create Next App</title>
       </Head>
 
-      <Button>asdf</Button>
+      <HelloWorld />
     </div>
   );
 }

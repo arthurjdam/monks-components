@@ -3,9 +3,9 @@
 
 
 "@arthurjdam/monks-components-core@latest":
-  version "0.0.3"
-  resolved "https://npm.pkg.github.com/download/@arthurjdam/monks-components-core/0.0.3/ff77d5c7fb8eebb5671ec54ddbef6a17ee418798bae2b7fb2d51dd51d2d88c0d#84bbb5e7623c88646745dc800f5b1989fae8eac9"
-  integrity sha512-U95bW78zpn5nm411g1fm0URF2HYIXBwLPyPfI3mwn3CfxnnlpHvoXVMZstoqXg6JvcRAfCscg2483bdqcksGFA==
+  version "0.0.4"
+  resolved "https://npm.pkg.github.com/download/@arthurjdam/monks-components-core/0.0.4/5a2e424df4de9eeb14caf645d5f915592621e55e1f23dd01bda1a8f9665c1d09#361fb2a10fd6473e32cbc4977db628984c5a7662"
+  integrity sha512-TENZWm3MC9vHq97WcATJ0IBGzc9N+3Xe9QnOCfLlF2/GAKFCoKre2fmyxcqc7TWZKcmC9ZrwVzTcvAXS1w3OAQ==
   dependencies:
     react "^17.0.2"
     react-dom "^17.0.2"
@@ -598,9 +598,9 @@ domain-browser@^1.1.1:
   integrity sha512-jnjyiM6eRyZl2H+W8Q/zLMA481hzi0eszAaBUzIVnmYVDBbnLxVNnfu1HgEBvCbL+71FrxMl3E6lpKH7Ge3OXA==
 
 electron-to-chromium@^1.3.634:
-  version "1.3.719"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.719.tgz#87166fee347a46a2557f19aadb40a1d68241e61c"
-  integrity sha512-heM78GKSqrIzO9Oz0/y22nTBN7bqSP1Pla2SyU9DiSnQD+Ea9SyyN5RWWlgqsqeBLNDkSlE9J9EHFmdMPzxB/g==
+  version "1.3.720"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.720.tgz#f5d66df8754d993006b7b2ded15ff7738c58bd94"
+  integrity sha512-B6zLTxxaOFP4WZm6DrvgRk8kLFYWNhQ5TrHMC0l5WtkMXhU5UbnvWoTfeEwqOruUSlNMhVLfYak7REX6oC5Yfw==
 
 elliptic@^6.5.3:
   version "6.5.4"
