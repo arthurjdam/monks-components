@@ -9,14 +9,14 @@ export default {
 };
 
 export function standardButtonWithAnInvertedVariant() {
-    return (
-      <>
-        <Button>Button</Button>
-        <Button inverted>Button</Button>
-      </>
-    );
-  }
-  
-  standardButtonWithAnInvertedVariant.story = {
-    name: 'Standard button and an inverted variant.',
-  };
+  return (
+    <React.Fragment>
+      <Button>Button</Button>
+      <Button inverted>Button</Button>
+    </React.Fragment>
+  );
+}
+
+standardButtonWithAnInvertedVariant.story = {
+  name: 'Standard button and an inverted variant.',
+};

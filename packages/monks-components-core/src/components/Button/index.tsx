@@ -1,9 +1,14 @@
-import React from 'react';
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
+
+import React, { ReactElement } from 'react';
 // import { mutuallyExclusiveTrueProps } from 'airbnb-prop-types';
-import useStyles, { StyleSheet } from '../../hooks/useStyles';
+// import useStyles, { StyleSheet } from '../../hooks/useStyles';
 // import ButtonOrLink, { ButtonOrLinkProps } from '../private/ButtonOrLink';
 // import Loader from '../Loader';
-import { buttonStyleSheet } from './style';
+// import { buttonStyleSheet } from './style';
+import * as style from './style';
 
 export type ButtonProps = {
   /** Render as a block with full width. */
@@ -31,17 +36,17 @@ function Button({
   //   loading,
   styleSheet,
   ...restProps
-}: React.PropsWithChildren<ButtonProps>) {
-  const [styles, cx] = useStyles(styleSheet ?? buttonStyleSheet);
+}: React.PropsWithChildren<ButtonProps>): ReactElement {
+  // const [styles, cx] = useStyles(styleSheet ?? buttonStyleSheet);
 
   return (
-    <button
+    <div
       {...restProps}
       //   aria-busy={loading}
       //   disabled={disabled}
       //   loading={loading}
-      className={cx(
-        styles.button,
+      css={
+        style.button
         // large && styles.button_large,
         // small && styles.button_small,
         // !large && !small && styles.button_regular,
@@ -51,11 +56,13 @@ function Button({
         // invalid && styles.button_invalid,
         // borderless && styles.button_borderless,
         // loading && styles.button_loading,
-      )}
+      }
     >
       {/* {loading ? <Loader inline inverted={!inverted} /> : children} */}
-      {children}
-    </button>
+      {/* <div className={cx(styles.icon, styles.iconBefore)}>a</div> */}
+      <div css={style.label}>asdf{children}</div>
+      {/* <div className={cx(styles.icon, styles.iconAfter)}>a</div> */}
+    </div>
   );
 }
 
