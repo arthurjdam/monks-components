@@ -59,9 +59,9 @@ function Button({
       }
     >
       {/* {loading ? <Loader inline inverted={!inverted} /> : children} */}
-      {/* <div className={cx(styles.icon, styles.iconBefore)}>a</div> */}
+      <div css={[style.icon, style.iconBefore]}>a</div>
       <div css={style.label}>asdf{children}</div>
-      {/* <div className={cx(styles.icon, styles.iconAfter)}>a</div> */}
+      <div css={[style.icon, style.iconAfter]}>a</div>
     </div>
   );
 }
