@@ -9,6 +9,7 @@
 // export { default as useTheme } from './useTheme';
 // export { default as withStyles } from './withStyles';
 import { default as ThemeProvider } from './ThemeProvider';
+export { default as colors } from './colors';
 // export { default as withTheme } from './withTheme';
 // export {
 //   createGenerateClassName,

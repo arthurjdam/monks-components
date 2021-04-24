@@ -1,7 +1,8 @@
 import { css } from '@emotion/react';
+import { colors } from '../../styles';
 
 export const icon = css({
-  backgroundColor: '#2d2d2d',
+  backgroundColor: colors.warm['900'],
   width: 30,
   height: 30,
   borderRadius: '10rem',
@@ -22,13 +23,13 @@ export const iconAfter = css({
   transformOrigin: '100% 50%',
 });
 export const label = css({
-  backgroundColor: '#2d2d2d',
+  backgroundColor: colors.warm['900'],
   height: 30,
   borderRadius: '10rem',
   display: 'inline-flex',
   justifyContent: 'center',
   alignItems: 'center',
-  color: 'rgb(234, 232, 228)',
+  color: colors.warm['100'],
   padding: '0 1.2rem',
   position: 'relative',
   transition: '100ms ease-out',
