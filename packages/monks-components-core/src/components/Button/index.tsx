@@ -1,3 +1,7 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx } from '@emotion/react';
+
 import React, { ReactElement } from 'react';
 // import { mutuallyExclusiveTrueProps } from 'airbnb-prop-types';
 // import useStyles, { StyleSheet } from '../../hooks/useStyles';
