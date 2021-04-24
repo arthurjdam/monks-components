@@ -1,13 +1,22 @@
-import './bootstrap';
-import React from 'react';
-import { addDecorator } from '@storybook/react';
+import React, { Fragment } from 'react';
+import Global from '../src';
 
-addDecorator((story) => (
-  <div
-    style={{
-      padding: 24,
-    }}
-  >
-    {story()}
-  </div>
-));
+export const decorators = [
+  // Add global style
+  (Story) => (
+    <Fragment>
+      <Global theme="default" />
+      <Story />
+    </Fragment>
+  ),
+  // Add padding around everything
+  (Story) => (
+    <div
+      style={{
+        padding: 24,
+      }}
+    >
+      <Story />
+    </div>
+  ),
+];
