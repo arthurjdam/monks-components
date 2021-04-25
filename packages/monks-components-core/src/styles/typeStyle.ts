@@ -46,27 +46,6 @@ export const typeStyle: Record<
       fontSize: 18,
     },
   },
-  // h2: `
-  // 	${fluidType(30, 45)};
-  // 	font-family: ${fontFamily};
-  //   line-height: 1.15;
-  // `,
-  // h3: `
-  // 	${fluidType(24, 30)};
-  // 	font-family: ${fontFamily};
-  //   line-height: 1.3;
-  //   font-stretch: expanded;
-  // `,
-  // h4: `
-  // 	${fluidType(20, 24)};
-  // 	font-family: ${fontFamily};
-  //   line-height: 1.3;
-  //   font-stretch: expanded;
-
-  //   @media ${respondTo(MediaQuery.minWidth1024)} {
-  //     font-size: 18px
-  //   }
-  // `,
   large: {
     ...fluidType(18, 24),
     fontFamily: fontFamily,
@@ -87,26 +66,6 @@ export const typeStyle: Record<
     fontFamily: fontFamily,
     lineHeight: 1.3,
   },
-  // large: `
-  //   ${fluidType(18, 24)};
-  //   font-family: ${fontFamily};
-  //   line-height: 1.5;
-  // `,
-  // medium: `
-  //   ${fluidType(16, 20)};
-  //   font-family: ${fontFamily};
-  //   line-height: 1.3;
-  // `,
-  // small: `
-  //   font-size: 14px;
-  //   font-family: ${fontFamily};
-  //   line-height: 1.3;
-  // `,
-  // xSmall: `
-  //   font-size: 12px;
-  //   font-family: ${fontFamily};
-  //   line-height: 1.3;
-  // `,
   label: {
     fontSize: 16,
     fontFamily: fontFamily,
@@ -122,19 +81,4 @@ export const typeStyle: Record<
     fontFamily: fontFamily,
     lineHeight: '16px',
   },
-  // label: `
-  //   font-size: 16px;
-  //   font-family: ${fontFamily};
-  //   line-height: 1.3;
-  // `,
-  // data: `
-  //   font-size: 14px;
-  //   font-family: ${fontFamily};
-  //   line-height: 1.3;
-  // `,
-  // helper: `
-  //   font-size: 10px;
-  //   font-family: ${fontFamily};
-  //   line-height: 16px;
-  // `,
 };
