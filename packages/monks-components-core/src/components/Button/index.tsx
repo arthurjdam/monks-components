@@ -3,6 +3,7 @@
 import { jsx } from '@emotion/react';
 
 import React, { ReactElement } from 'react';
+import { tuple } from '../../utils/types';
 // import { mutuallyExclusiveTrueProps } from 'airbnb-prop-types';
 // import useStyles, { StyleSheet } from '../../hooks/useStyles';
 // import ButtonOrLink, { ButtonOrLinkProps } from '../private/ButtonOrLink';
@@ -10,20 +11,43 @@ import React, { ReactElement } from 'react';
 // import { buttonStyleSheet } from './style';
 import * as style from './style';
 
-export type ButtonProps = {
-  /** Render as a block with full width. */
-  block?: boolean;
-  /** Render as borderless. */
-  borderless?: boolean;
-  /** @ignore Hidden prop used in forms. */
-  invalid?: boolean;
-  /** Invert text colors. */
-  inverted?: boolean;
-  /** Increase font size and padding to large. */
+const ButtonTypes = tuple(
+  'default',
+  'primary',
+  'ghost',
+  'dashed',
+  'link',
+  'text',
+);
+export type ButtonType = typeof ButtonTypes[number];
+const ButtonHTMLTypes = tuple('submit', 'button', 'reset');
+export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
+
+export type BaseButtonProps = {
+  type?: ButtonType;
+  icon?: React.ReactNode;
   size?: 'small' | 'large';
-  /** Custom style sheet. */
-  styleSheet?: StyleSheet;
+  loading?: boolean | { delay?: number };
+  className?: string;
+  // ghost?: boolean;
+  // danger?: boolean;
+  block?: boolean;
 };
+
+// export type AnchorButtonProps = {
+//   href: string;
+//   target?: string;
+//   onClick?: React.MouseEventHandler<HTMLElement>;
+// } & BaseButtonProps &
+//   Omit<React.AnchorHTMLAttributes<any>, 'type' | 'onClick'>;
+
+// export type NativeButtonProps = {
+//   htmlType?: ButtonHTMLType;
+//   onClick?: React.MouseEventHandler<HTMLElement>;
+// } & BaseButtonProps &
+//   Omit<React.ButtonHTMLAttributes<any>, 'type' | 'onClick'>;
+
+// export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
 function Button({
   block,
@@ -32,7 +56,7 @@ function Button({
   //   disabled,
   invalid,
   inverted,
-  size,
+  size = 'small',
   //   loading,
   styleSheet,
   ...restProps

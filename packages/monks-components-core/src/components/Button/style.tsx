@@ -1,5 +1,11 @@
 import { css } from '@emotion/react';
-import { colors } from '../../styles';
+import { colors, transitions } from '../../styles';
+
+const easeHoverIn = `140ms ${transitions.easeOutQuint}`;
+const easeHoverOut = `600ms ${transitions.easeOutQuint}`;
+
+const sizeLarge = 60;
+const sizeSmall = 30;
 
 export const icon = css({
   backgroundColor: colors.warm['900'],
@@ -10,7 +16,7 @@ export const icon = css({
   justifyContent: 'center',
   alignItems: 'center',
   overflow: 'hidden',
-  transition: '100ms ease-out',
+  transition: easeHoverOut,
 });
 export const iconBefore = css({
   top: 0,
@@ -32,7 +38,7 @@ export const label = css({
   color: colors.warm['100'],
   padding: '0 1.2rem',
   position: 'relative',
-  transition: '100ms ease-out',
+  transition: easeHoverOut,
 });
 
 export const button = css({
@@ -42,14 +48,17 @@ export const button = css({
   alignItems: 'center',
   whiteSpace: 'nowrap',
   position: 'relative',
-  ':hover >': {
+  ':hover >, .hover >': {
     ':nth-child(1)': {
+      transition: easeHoverIn,
       transform: 'scale(1, 1)',
     },
     ':nth-child(2)': {
+      transition: easeHoverIn,
       transform: 'translate(30px, 0)',
     },
     ':nth-child(3)': {
+      transition: easeHoverIn,
       transform: 'scale(0, 0)',
     },
   },
