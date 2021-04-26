@@ -54,3 +54,20 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Source Code Pro';
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  src: url('./files/SourceCodePro-Regular.ttf.woff2') format('woff2'),
+    url('./files/SourceCodePro-Regular.ttf.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  src: url('./files/SourceCodePro-Bold.ttf.woff2') format('woff2'),
+    url('./files/SourceCodePro-Bold.ttf.woff') format('woff');
+}
