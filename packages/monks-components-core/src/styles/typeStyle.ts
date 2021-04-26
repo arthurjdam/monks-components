@@ -1,4 +1,5 @@
 import { CSSObject } from '@emotion/react';
+import { colors } from '.';
 import { fluidType } from './fluidType';
 import { MediaQuery } from './mediaQuery';
 import { respondTo } from './respondTo';
@@ -6,12 +7,15 @@ import { respondTo } from './respondTo';
 
 export type HeadingType = 'h1' | 'h2' | 'h3' | 'h4';
 export type ParagraphSize =
-  | 'large'
-  | 'medium'
+  // | 'large'
+  // | 'medium'
   | 'small'
-  | 'xSmall'
-  | 'data'
-  | 'helper';
+  // | 'xSmall'
+  // | 'data'
+  // | 'helper'
+  | 'p'
+  | 'code'
+  | 'a';
 export type FontWeightType = '400' | '500' | '700' | '800';
 
 const fontFamily =
@@ -22,18 +26,22 @@ export const typeStyle: Record<
   CSSObject
 > = {
   h1: {
-    ...fluidType(45, 100),
-    fontFamily: fontFamily,
+    fontSize: 100,
+    // ...fluidType(45, 100),
+    // fontFamily: fontFamily,
     lineHeight: 1.15,
+    fontStretch: 'expanded',
   },
   h2: {
-    ...fluidType(30, 45),
-    fontFamily: fontFamily,
+    // ...fluidType(30, 45),
+    // fontFamily: fontFamily,
+    fontSize: 45,
     lineHeight: 1.15,
+    fontStretch: 'expanded',
   },
   h3: {
-    ...fluidType(24, 30),
-    fontFamily: fontFamily,
+    // ...fluidType(24, 30),
+    fontSize: 18,
     lineHeight: 1.3,
     fontStretch: 'expanded',
   },
@@ -46,39 +54,58 @@ export const typeStyle: Record<
       fontSize: 18,
     },
   },
-  large: {
-    ...fluidType(18, 24),
-    fontFamily: fontFamily,
-    lineHeight: 1.5,
-  },
-  medium: {
-    ...fluidType(16, 20),
-    fontFamily: fontFamily,
-    lineHeight: 1.3,
+  // large: {
+  //   fontSize: 18,
+  //   lineHeight: 1.5,
+  // },
+  p: {
+    //   fontSize: 16,
+    lineHeight: 1.625,
   },
   small: {
-    fontSize: 14,
-    fontFamily: fontFamily,
-    lineHeight: 1.3,
-  },
-  xSmall: {
     fontSize: 12,
-    fontFamily: fontFamily,
     lineHeight: 1.3,
   },
+  // xSmall: {
+  //   fontSize: 12,
+  //   fontFamily: fontFamily,
+  //   lineHeight: 1.3,
+  // },
   label: {
     fontSize: 16,
     fontFamily: fontFamily,
     lineHeight: 1.3,
   },
-  data: {
-    fontSize: 14,
-    fontFamily: fontFamily,
-    lineHeight: 1.3,
+  // data: {
+  //   fontSize: 14,
+  //   fontFamily: fontFamily,
+  //   lineHeight: 1.3,
+  // },
+  // helper: {
+  //   fontSize: 10,
+  //   fontFamily: fontFamily,
+  //   lineHeight: '16px',
+  // },
+  code: {
+    fontFamily: '"Source Code Pro", monospace',
+    fontSize: '85%',
+    backgroundColor: colors.grey['500'],
+    padding: '0.2em 0.4em',
+    margin: 0,
+    borderRadius: 6,
   },
-  helper: {
-    fontSize: 10,
-    fontFamily: fontFamily,
-    lineHeight: '16px',
+  a: {
+    textDecoration: 'none',
+    color: colors.ultramarine['500'],
+    fontWeight: 700,
+    '&:hover': {
+      // borderBottom: `2px solid currentColor`,
+      // background-size: 1px 1em;
+      boxShadow: 'inset 0 -0.175em white, inset 0 -0.2em #000',
+      display: 'inline',
+
+      textShadow:
+        '2px 2px white, 2px -2px white, -2px 2px white, -2px -2px white',
+    },
   },
 };
