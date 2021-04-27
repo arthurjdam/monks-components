@@ -21,12 +21,13 @@ export type Props = {
   focusable: SVGAttributes<unknown>['focusable'];
   role: string;
   style: React.CSSProperties;
+  color: string;
 };
 
 export default function withIcon(
   name: string,
 ): (
-  WrappedComponent: React.ComponentType<Props>,
+  WrappedComponent: React.ComponentType<Props> & { strokeOnly?: boolean },
 ) => React.ComponentType<WithIconWrapperProps> {
   return (WrappedComponent) => {
     function Icon({
@@ -44,11 +45,14 @@ export default function withIcon(
       } = {
         focusable: 'false',
         role: decorative ? 'presentation' : 'img',
+        color,
         style: {
           height: size,
           width: size,
           display: inline ? 'inline' : 'block',
-          fill: color,
+          stroke: WrappedComponent.strokeOnly === true ? color : 'none',
+          strokeWidth: WrappedComponent.strokeOnly === true ? '2px' : 0,
+          fill: WrappedComponent.strokeOnly === true ? 'none' : color,
           transform:
             flip || flipVertical
               ? `scale(${flip ? -1 : 1}, ${flipVertical ? -1 : 1})`
