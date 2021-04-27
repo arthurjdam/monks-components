@@ -1,16 +1,18 @@
 import { css } from '@emotion/react';
 import { colors, transitions } from '../../styles';
 
-const easeHoverIn = `140ms ${transitions.easeOutQuint}`;
+const easeHoverIn = `200ms ${transitions.easeOutQuint}`;
 const easeHoverOut = `600ms ${transitions.easeOutQuint}`;
 
 const sizeLarge = 60;
 const sizeSmall = 30;
+const size = sizeSmall;
 
 export const icon = css({
   backgroundColor: colors.warm['900'],
-  width: 30,
-  height: 30,
+  color: colors.warm['100'],
+  width: size,
+  height: size,
   borderRadius: '10rem',
   display: 'inline-flex',
   justifyContent: 'center',
@@ -24,23 +26,35 @@ export const iconBefore = css({
   position: 'absolute',
   transformOrigin: '0% 50%',
   transform: 'scale(0, 0)',
+  '& span:first-of-type': {
+    transition: `800ms ${transitions.easeOutQuint}`,
+    transform: 'translate(50px, 0)',
+  },
 });
 export const iconAfter = css({
   transformOrigin: '100% 50%',
+  '& span:first-of-type': {
+    transition: `800ms ${transitions.easeOutQuint}`,
+    transform: 'translate(0, 0)',
+  },
 });
+
 export const label = css({
   backgroundColor: colors.warm['900'],
-  height: 30,
+  color: colors.warm['100'],
+  height: size,
   borderRadius: '10rem',
   display: 'inline-flex',
   justifyContent: 'center',
   alignItems: 'center',
-  color: colors.warm['100'],
   padding: '0 1.2rem',
   position: 'relative',
   transition: easeHoverOut,
-});
 
+  fontSize: '0.875rem',
+  fontWeight: 700,
+});
+// console.log(label);
 export const button = css({
   cursor: 'pointer',
   display: 'inline-flex',
@@ -48,18 +62,39 @@ export const button = css({
   alignItems: 'center',
   whiteSpace: 'nowrap',
   position: 'relative',
-  ':hover >, .hover >': {
-    ':nth-child(1)': {
+  '&.withIcon:hover:not(:disabled) >': {
+    '.iconBefore': {
       transition: easeHoverIn,
       transform: 'scale(1, 1)',
+      '& span:first-of-type': {
+        transform: 'translate(0, 0)',
+      },
     },
-    ':nth-child(2)': {
+    '.label': {
       transition: easeHoverIn,
-      transform: 'translate(30px, 0)',
+      transform: `translate(${size}px, 0)`,
     },
-    ':nth-child(3)': {
+    '.iconAfter': {
       transition: easeHoverIn,
       transform: 'scale(0, 0)',
+      '& span:first-of-type': {
+        transform: `translate(-50px, 0)`,
+      },
     },
+  },
+});
+
+export const button_block = css({
+  display: 'flex',
+  '& .label': {
+    flexGrow: 1,
+  },
+});
+export const button_primary = css({
+  '.label': {
+    backgroundColor: colors.ultramarine['500'],
+  },
+  '.icon': {
+    backgroundColor: colors.ultramarine['500'],
   },
 });

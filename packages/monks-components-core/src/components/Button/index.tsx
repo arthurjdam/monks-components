@@ -25,7 +25,13 @@ export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
 
 export type BaseButtonProps = {
   type?: ButtonType;
+  /**
+   * Displays an icon at the end of the button
+   */
   icon?: React.ReactNode;
+  /**
+   * The size of the component
+   */
   size?: 'small' | 'large';
   loading?: boolean | { delay?: number };
   className?: string;
@@ -34,31 +40,31 @@ export type BaseButtonProps = {
   block?: boolean;
 };
 
-// export type AnchorButtonProps = {
-//   href: string;
-//   target?: string;
-//   onClick?: React.MouseEventHandler<HTMLElement>;
-// } & BaseButtonProps &
-//   Omit<React.AnchorHTMLAttributes<any>, 'type' | 'onClick'>;
+export type AnchorButtonProps = {
+  href: string;
+  target?: string;
+  onClick?: React.MouseEventHandler<HTMLElement>;
+} & BaseButtonProps &
+  Omit<React.AnchorHTMLAttributes<unknown>, 'type' | 'onClick'>;
 
-// export type NativeButtonProps = {
-//   htmlType?: ButtonHTMLType;
-//   onClick?: React.MouseEventHandler<HTMLElement>;
-// } & BaseButtonProps &
-//   Omit<React.ButtonHTMLAttributes<any>, 'type' | 'onClick'>;
+export type NativeButtonProps = {
+  htmlType?: ButtonHTMLType;
+  onClick?: React.MouseEventHandler<HTMLElement>;
+} & BaseButtonProps &
+  Omit<React.ButtonHTMLAttributes<unknown>, 'type' | 'onClick'>;
 
+export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 // export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
 function Button({
-  block,
-  borderless,
-  children,
-  //   disabled,
-  invalid,
-  inverted,
+  type,
+  icon,
+  disabled,
   size = 'small',
-  //   loading,
-  styleSheet,
+  loading,
+  className,
+  block = false,
+  children,
   ...restProps
 }: React.PropsWithChildren<ButtonProps>): ReactElement {
   // const [styles, cx] = useStyles(styleSheet ?? buttonStyleSheet);
@@ -69,23 +75,35 @@ function Button({
       //   aria-busy={loading}
       //   disabled={disabled}
       //   loading={loading}
-      css={
-        style.button
+      css={[
+        style.button,
         // large && styles.button_large,
         // small && styles.button_small,
         // !large && !small && styles.button_regular,
-        // block && styles.button_block,
+        block && style.button_block,
+        type === 'primary' && style.button_primary,
         // (disabled || loading) && styles.button_disabled,
         // (borderless || inverted) && styles.button_inverted,
         // invalid && styles.button_invalid,
         // borderless && styles.button_borderless,
         // loading && styles.button_loading,
-      }
+      ]}
+      className={!!icon && 'withIcon'}
     >
       {/* {loading ? <Loader inline inverted={!inverted} /> : children} */}
-      <div css={[style.icon, style.iconBefore]}>a</div>
-      <div css={style.label}>asdf{children}</div>
-      <div css={[style.icon, style.iconAfter]}>a</div>
+      {icon && (
+        <div css={[style.icon, style.iconBefore]} className="iconBefore">
+          <span>{icon}</span>
+        </div>
+      )}
+      <div css={style.label} className="label">
+        {children}
+      </div>
+      {icon && (
+        <div css={[style.icon, style.iconAfter]} className="iconAfter">
+          <span>{icon}</span>
+        </div>
+      )}
     </div>
   );
 }
