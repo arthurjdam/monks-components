@@ -1,12 +1,16 @@
 import { css } from '@emotion/react';
 import { colors, transitions } from '../../styles';
 
-const easeHoverIn = `200ms ${transitions.easeOutQuint}`;
+const easeHoverIn = `400ms ${transitions.easeOutQuint}`;
 const easeHoverOut = `600ms ${transitions.easeOutQuint}`;
 
 const sizeLarge = 60;
 const sizeSmall = 30;
 const size = sizeSmall;
+
+export const buttonLabel = '.label';
+export const buttonIconAfter = '.iconAfter';
+export const buttonIconBefore = '.iconBefore';
 
 export const icon = css({
   backgroundColor: colors.warm['900'],
@@ -27,14 +31,14 @@ export const iconBefore = css({
   transformOrigin: '0% 50%',
   transform: 'scale(0, 0)',
   '& span:first-of-type': {
-    transition: `800ms ${transitions.easeOutQuint}`,
+    transition: `600ms ${transitions.easeOutQuint}`,
     transform: 'translate(50px, 0)',
   },
 });
 export const iconAfter = css({
   transformOrigin: '100% 50%',
   '& span:first-of-type': {
-    transition: `800ms ${transitions.easeOutQuint}`,
+    transition: `600ms ${transitions.easeOutQuint} 40ms`,
     transform: 'translate(0, 0)',
   },
 });
@@ -54,7 +58,7 @@ export const label = css({
   fontSize: '0.875rem',
   fontWeight: 700,
 });
-// console.log(label);
+
 export const button = css({
   cursor: 'pointer',
   display: 'inline-flex',
@@ -63,22 +67,24 @@ export const button = css({
   whiteSpace: 'nowrap',
   position: 'relative',
   '&.withIcon:hover:not(:disabled) >': {
-    '.iconBefore': {
+    [buttonIconBefore]: {
       transition: easeHoverIn,
       transform: 'scale(1, 1)',
       '& span:first-of-type': {
         transform: 'translate(0, 0)',
+        transition: `600ms ${transitions.easeOutQuint}`,
       },
     },
-    '.label': {
+    [buttonLabel]: {
       transition: easeHoverIn,
       transform: `translate(${size}px, 0)`,
     },
-    '.iconAfter': {
+    [buttonIconAfter]: {
       transition: easeHoverIn,
       transform: 'scale(0, 0)',
       '& span:first-of-type': {
         transform: `translate(-50px, 0)`,
+        transition: `200ms ${transitions.easeOutQuint}`,
       },
     },
   },
@@ -86,27 +92,27 @@ export const button = css({
 
 export const button_block = css({
   display: 'flex',
-  '> .label': {
+  [`> ${buttonLabel}`]: {
     flexGrow: 1,
   },
 });
 export const button_primary = css({
-  '> .label': {
+  [`> ${buttonLabel}`]: {
     backgroundColor: colors.ultramarine['500'],
   },
-  '> .iconBefore, > .iconAfter': {
+  [`> ${buttonIconBefore}, > ${buttonIconAfter}`]: {
     backgroundColor: colors.ultramarine['500'],
   },
 });
 
 export const button_inverted = css({
   color: colors.ultramarine['500'],
-  '> .label': {
+  [`> ${buttonLabel}`]: {
     color: colors.ultramarine['500'],
     backgroundColor: 'transparent',
     border: '1.2px solid currentColor',
   },
-  '> .iconBefore, > .iconAfter': {
+  [`> ${buttonIconBefore}, > ${buttonIconAfter}`]: {
     color: colors.ultramarine['500'],
     backgroundColor: 'transparent',
     border: '1.2px solid currentColor',
