@@ -51,7 +51,7 @@ export default function withIcon(
           width: size,
           display: inline ? 'inline' : 'block',
           stroke: WrappedComponent.strokeOnly === true ? color : 'none',
-          strokeWidth: WrappedComponent.strokeOnly === true ? '2px' : 0,
+          strokeWidth: WrappedComponent.strokeOnly === true ? '1.2px' : 0,
           fill: WrappedComponent.strokeOnly === true ? 'none' : color,
           transform:
             flip || flipVertical
