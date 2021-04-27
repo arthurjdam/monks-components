@@ -86,15 +86,29 @@ export const button = css({
 
 export const button_block = css({
   display: 'flex',
-  '& .label': {
+  '> .label': {
     flexGrow: 1,
   },
 });
 export const button_primary = css({
-  '.label': {
+  '> .label': {
     backgroundColor: colors.ultramarine['500'],
   },
-  '.icon': {
+  '> .iconBefore, > .iconAfter': {
     backgroundColor: colors.ultramarine['500'],
+  },
+});
+
+export const button_inverted = css({
+  color: colors.ultramarine['500'],
+  '> .label': {
+    color: colors.ultramarine['500'],
+    backgroundColor: 'transparent',
+    border: '1.2px solid currentColor',
+  },
+  '> .iconBefore, > .iconAfter': {
+    color: colors.ultramarine['500'],
+    backgroundColor: 'transparent',
+    border: '1.2px solid currentColor',
   },
 });

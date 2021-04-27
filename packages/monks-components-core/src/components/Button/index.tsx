@@ -11,14 +11,7 @@ import { tuple } from '../../utils/types';
 // import { buttonStyleSheet } from './style';
 import * as style from './style';
 
-const ButtonTypes = tuple(
-  'default',
-  'primary',
-  'ghost',
-  'dashed',
-  'link',
-  'text',
-);
+const ButtonTypes = tuple('default', 'primary', 'ghost', 'link', 'text');
 export type ButtonType = typeof ButtonTypes[number];
 const ButtonHTMLTypes = tuple('submit', 'button', 'reset');
 export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
@@ -67,8 +60,6 @@ function Button({
   children,
   ...restProps
 }: React.PropsWithChildren<ButtonProps>): ReactElement {
-  // const [styles, cx] = useStyles(styleSheet ?? buttonStyleSheet);
-
   return (
     <div
       {...restProps}
@@ -82,6 +73,7 @@ function Button({
         // !large && !small && styles.button_regular,
         block && style.button_block,
         type === 'primary' && style.button_primary,
+        type === 'ghost' && style.button_inverted,
         // (disabled || loading) && styles.button_disabled,
         // (borderless || inverted) && styles.button_inverted,
         // invalid && styles.button_invalid,

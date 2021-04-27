@@ -23,6 +23,19 @@ standardButtonWithAnInvertedVariant.story = {
   name: 'Standard button',
 };
 
+export function ghostButton() {
+  return (
+    <React.Fragment>
+      <Button type="ghost" icon={<IconArrowRight />}>
+        Button
+      </Button>
+    </React.Fragment>
+  );
+}
+ghostButton.story = {
+  name: 'Ghost button',
+};
+
 export function invertedButton() {
   return (
     <React.Fragment>
