@@ -17,19 +17,26 @@ const ButtonHTMLTypes = tuple('submit', 'button', 'reset');
 export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
 
 export type BaseButtonProps = {
+  className?: string;
+  /**
+   * The display type of the button
+   */
   type?: ButtonType;
   /**
-   * Displays an icon at the end of the button
+   * Show an icon at the end of the button
    */
   icon?: React.ReactNode;
   /**
-   * The size of the component
+   * The size of the component (note there is currently no "medium" size)
    */
   size?: 'small' | 'large';
+  /**
+   * Set to true if the button should display a loading spinner
+   */
   loading?: boolean | { delay?: number };
-  className?: string;
-  // ghost?: boolean;
-  // danger?: boolean;
+  /**
+   * Make the buton span the entire width of its parent
+   */
   block?: boolean;
 };
 
@@ -47,10 +54,9 @@ export type NativeButtonProps = {
   Omit<React.ButtonHTMLAttributes<unknown>, 'type' | 'onClick'>;
 
 export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
-// export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
 function Button({
-  type,
+  type = 'default',
   icon,
   disabled,
   size = 'small',
@@ -99,10 +105,5 @@ function Button({
     </div>
   );
 }
-
-// Button.propTypes = {
-//   large: sizingProp,
-//   small: sizingProp,
-// };
 
 export default Button;

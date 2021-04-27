@@ -4,6 +4,7 @@ import { IconArrowRight, IconClock } from '@arthurjdam/monks-components-icon';
 
 export default {
   title: 'Core/Button',
+  component: Button,
   parameters: {
     inspectComponents: [Button],
   },
@@ -21,6 +22,11 @@ export function standardButtonWithAnInvertedVariant() {
 }
 standardButtonWithAnInvertedVariant.story = {
   name: 'Standard button',
+};
+standardButtonWithAnInvertedVariant.parameters = {
+  docs: {
+    storyDescription: 'asdf asdf asdf',
+  },
 };
 
 export function ghostButton() {
