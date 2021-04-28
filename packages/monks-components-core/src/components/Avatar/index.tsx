@@ -57,10 +57,7 @@ function Avatar({
     <div
       css={[
         style.avatar,
-        css({
-          width: size === 'large' ? 72 : 46,
-          height: size === 'large' ? 72 : 46,
-        }),
+        size === 'large' ? style.avatarLarge : style.avatarMedium,
       ]}
     >
       {children}

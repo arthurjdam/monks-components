@@ -16,7 +16,7 @@ export const avatar = css({
   fontWeight: 900,
   fontStretch: 'expanded',
   fontSize: '100%',
-//   fontSize: `${20 / 16}rem`,
+  //   fontSize: `${20 / 16}rem`,
   lineHeight: 1,
   borderRadius: '50%',
   overflow: 'hidden',
@@ -24,7 +24,19 @@ export const avatar = css({
 
   backgroundColor: colors.ultramarine['500'],
   color: colors.pink['100'],
-  //   boxShadow: `0 0 0 3px #fff, 0 0 0 4.4px ${colors.ultramarine['500']}`,
+});
+
+export const avatarMedium = css({
+  width: sizeMedium,
+  height: sizeMedium,
+  fontSize: '100%',
+});
+
+export const avatarLarge = css({
+  width: sizeLarge,
+  height: sizeLarge,
+  boxShadow: `0 0 0 3px #fff, 0 0 0 4.4px ${colors.ultramarine['500']}`,
+  fontSize: '150%',
 });
 
 export const img = css({
