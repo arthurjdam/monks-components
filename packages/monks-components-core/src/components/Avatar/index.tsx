@@ -26,7 +26,15 @@ export interface AvatarProps {
   /**
    * The size of the component
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: /*'small' | */'medium' | 'large';
+  /**
+   * Color of foreground
+   */
+  color?: string;
+  /**
+   * Color of background
+   */
+  backgroundColor?: string;
 }
 
 function Avatar({
@@ -35,6 +43,8 @@ function Avatar({
   srcSet,
   className,
   size = 'medium',
+  color,
+  backgroundColor,
   children: childrenProp,
 }: React.PropsWithChildren<AvatarProps>): ReactElement {
   let children = null;
@@ -59,6 +69,11 @@ function Avatar({
         style.avatar,
         size === 'large' ? style.avatarLarge : style.avatarMedium,
       ]}
+      className={className}
+      style={{
+        color: color && color,
+        backgroundColor: backgroundColor && backgroundColor,
+      }}
     >
       {children}
     </div>
