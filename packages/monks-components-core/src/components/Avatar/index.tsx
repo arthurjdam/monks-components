@@ -49,7 +49,6 @@ function Avatar({
 }: React.PropsWithChildren<AvatarProps>): ReactElement {
   let children = null;
   const loaded = useLoaded({ src, srcSet });
-  console.log(loaded);
   const hasImg = src || srcSet;
   const hasImgNotFailing = hasImg && loaded !== 'error';
 
