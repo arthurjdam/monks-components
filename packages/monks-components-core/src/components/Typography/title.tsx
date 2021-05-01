@@ -18,7 +18,8 @@ const Title: React.FC<TitleProps> = ({
   level = 1,
   ...restProps
 }: TitleProps) => {
-  return <Base {...restProps} component={`h${level}`} />;
+  const Component = `h${level}`;
+  return <Component {...restProps} />;
 };
 
 export default Title;
