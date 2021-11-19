@@ -5,6 +5,16 @@ import { MediaQuery } from './mediaQuery';
 import { respondTo } from './respondTo';
 // import { theme } from './theme';
 
+export const fontVariants = {
+  extended: 'Helvetica Now Extended',
+  sansSerifDisplay: 'Helvetica Now Display',
+  sansSerif: 'Helvetica Now Text',
+  serif: 'Morian Trial',
+  caveat: 'Caveat',
+};
+export const baseFont = 'Arial, sans-serif';
+export const baseFontSize = 10;
+
 export type HeadingType = 'h1' | 'h2' | 'h3' | 'h4';
 export type ParagraphSize =
   // | 'large'
@@ -18,8 +28,7 @@ export type ParagraphSize =
   | 'a';
 export type FontWeightType = '400' | '500' | '700' | '800';
 
-const fontFamily =
-  '"Monkvetica", Helvetica, Arial, sans-serif, "Apple Color Emoji"';
+const fontFamily = `${fontVariants.sansSerif}, ${baseFont}`;
 
 export const typeStyle: Record<
   HeadingType | ParagraphSize | 'label',
@@ -28,13 +37,13 @@ export const typeStyle: Record<
   h1: {
     fontSize: 100,
     // ...fluidType(45, 100),
-    // fontFamily: fontFamily,
+    fontFamily,
     lineHeight: 1.15,
     fontStretch: 'expanded',
   },
   h2: {
     // ...fluidType(30, 45),
-    // fontFamily: fontFamily,
+    fontFamily,
     fontSize: 45,
     lineHeight: 1.15,
     fontStretch: 'expanded',
@@ -73,7 +82,7 @@ export const typeStyle: Record<
   // },
   label: {
     fontSize: 16,
-    fontFamily: fontFamily,
+    fontFamily,
     lineHeight: 1.3,
   },
   // data: {
