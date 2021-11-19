@@ -1,4 +1,4 @@
-import { FontFace, GlobalSheet } from 'aesthetic';
+// import { FontFace, GlobalSheet } from 'aesthetic';
 import { Theme } from '../types';
 
 export default (fontFaces: { [fontFamily: string]: FontFace[] }) => ({

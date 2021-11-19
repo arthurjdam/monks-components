@@ -1,10 +1,10 @@
-import React, { ReactElement } from 'react';
-import { Global as _Global, css } from '@emotion/react';
-import { typeStyle } from './styles/typeStyle';
-import '@arthurjdam/monks-components-font';
+import React from 'react';
+import { Global, css } from '@emotion/react';
+// import { typeStyle } from './styles/typeStyle';
+// import '@arthurjdam/monks-components-font';
 
-const Global = (): ReactElement => (
-  <_Global
+const _Global = (): React.ReactElement => (
+  <Global
     styles={{
       '*': {
         boxSizing: 'border-box',
@@ -24,7 +24,7 @@ const Global = (): ReactElement => (
         WebkitFontSmoothing: 'antialiased',
         MozOsxFontSmoothing: 'grayscale',
       },
-      ...typeStyle,
+      // ...typeStyle,
       // h1: {
       //   fontWeight: 800,
       //   fontStretch: 'expanded',
@@ -37,4 +37,6 @@ const Global = (): ReactElement => (
   />
 );
 
-export default Global;
+export { default as Button } from './components/Button';
+
+export default _Global;
