@@ -1,76 +1,43 @@
-import { Hexcode } from '../types';
+const colorMap = {
+  black: '#000',
+  lightGrey: 'e4e4e5',
+  white: '#fff',
 
-type NamedColor =
-  | 'yellow'
-  | 'orange'
-  | 'peach'
-  | 'pink'
-  | 'purple'
-  | 'ultramarine'
-  | 'cyan'
-  | 'green'
-  | 'warm'
-  | 'cool'
-  | 'grey';
-
-type ColorMap = Record<NamedColor, ColorSet>;
-type ColorSet = Record<'100' | '500' | '900', Hexcode>;
-
-const colorMap: ColorMap = {
-  yellow: {
-    '100': '#FFF0A9',
-    '500': '#FFCB16',
-    '900': '#270F0F',
+  tinted: {
+    pink: '#3C0C60',
+    blue: '#001D38',
+    green: '#002838',
+    yellow: '#270F0F',
+    red: '#440035',
+    tan: '#2D2D2D',
+    steel: '#191715',
+    purple: '#3C0C60',
+    orange: '#360E0B',
+    teal: '#0D3842',
   },
-  orange: {
-    '100': '#FFDDAB',
-    '500': '#FB961F',
-    '900': '#360E0B',
+  pastel: {
+    tan: '#EAE8E4',
+    steel: '#DEDFE5',
+    green: '#DCFF93',
+    red: '#FFCACA',
+    yellow: '#FFF0A9',
+    pink: '#FFB2E8',
+    blue: '#BCFFEF',
+    purple: '#DFBBFE',
+    orange: '#FFDDAB',
+    teal: '#BCFFEF',
   },
-  peach: {
-    '100': '#FFC6C3',
-    '500': '#EB405F',
-    '900': '#440035',
-  },
-  pink: {
-    '100': '#FFB2E8',
-    '500': '#FF2CE4',
-    '900': '#371534',
-  },
-  purple: {
-    '100': '#DFBBFE',
-    '500': '#7D26C9',
-    '900': '#3C0C60',
-  },
-  ultramarine: {
-    '100': '#CBF6FF',
-    '500': '#4F24EE',
-    '900': '#001D38',
-  },
-  cyan: {
-    '100': '#BAFFF1',
-    '500': '#4DBAC1',
-    '900': '#0D3842',
-  },
-  green: {
-    '100': '#E1FF9A',
-    '500': '#00DC7C',
-    '900': '#002838',
-  },
-  warm: {
-    '100': '#EAE8E4',
-    '500': '#C0B9B0',
-    '900': '#2D2D2D',
-  },
-  cool: {
-    '100': '#DEDFE5',
-    '500': '#656982',
-    '900': '#2C2D38',
-  },
-  grey: {
-    '100': '#FFF',
-    '500': '#E4E4E5',
-    '900': '#000',
+  vibrant: {
+    tan: '#6C6962',
+    steel: '#656982',
+    green: '#00DC7C',
+    red: '#FF245B',
+    yellow: '#FFCB16',
+    pink: '#FF2CE4',
+    blue: '#4F24EE',
+    purple: '#7D26C9',
+    orange: '#FB961F',
+    teal: '#4DBAC1',
   },
 };
 

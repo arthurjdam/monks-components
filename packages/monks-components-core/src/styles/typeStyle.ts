@@ -28,7 +28,7 @@ export type ParagraphSize =
   | 'a';
 export type FontWeightType = '400' | '500' | '700' | '800';
 
-const fontFamily = `${fontVariants.sansSerif}, ${baseFont}`;
+export const fontFamily = `${fontVariants.sansSerif}, ${baseFont}`;
 
 export const typeStyle: Record<
   HeadingType | ParagraphSize | 'label',
@@ -98,14 +98,14 @@ export const typeStyle: Record<
   code: {
     fontFamily: '"Source Code Pro", monospace',
     fontSize: '85%',
-    backgroundColor: colors.grey['500'],
+    backgroundColor: colors.pastel.tan,
     padding: '0.2em 0.4em',
     margin: 0,
     borderRadius: 6,
   },
   a: {
     textDecoration: 'none',
-    color: colors.ultramarine['500'],
+    color: colors.vibrant.blue,
     fontWeight: 700,
     '&:hover': {
       // borderBottom: `2px solid currentColor`,

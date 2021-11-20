@@ -22,8 +22,8 @@ export const avatar = css({
   overflow: 'hidden',
   userSelect: 'none',
 
-  backgroundColor: colors.ultramarine['500'],
-  color: colors.pink['100'],
+  backgroundColor: colors.vibrant.purple,
+  color: colors.pastel.pink,
 });
 
 export const avatarMedium = css({
@@ -35,7 +35,7 @@ export const avatarMedium = css({
 export const avatarLarge = css({
   width: sizeLarge,
   height: sizeLarge,
-  boxShadow: `0 0 0 3px #fff, 0 0 0 4.4px ${colors.ultramarine['500']}`,
+  boxShadow: `0 0 0 3px #fff, 0 0 0 4.4px ${colors.vibrant.purple}`,
   fontSize: '150%',
 });
 

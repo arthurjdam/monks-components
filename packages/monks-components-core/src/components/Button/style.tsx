@@ -13,8 +13,8 @@ export const buttonIconAfter = '.iconAfter';
 export const buttonIconBefore = '.iconBefore';
 
 export const icon = css({
-  backgroundColor: colors.warm['900'],
-  color: colors.warm['100'],
+  backgroundColor: colors.vibrant.tan,
+  color: colors.white,
   width: size,
   height: size,
   borderRadius: '10rem',
@@ -44,8 +44,8 @@ export const iconAfter = css({
 });
 
 export const label = css({
-  backgroundColor: colors.warm['900'],
-  color: colors.warm['100'],
+  backgroundColor: colors.vibrant.tan,
+  color: colors.white,
   height: size,
   borderRadius: '10rem',
   display: 'inline-flex',
@@ -98,22 +98,22 @@ export const button_block = css({
 });
 export const button_primary = css({
   [`> ${buttonLabel}`]: {
-    backgroundColor: colors.ultramarine['500'],
+    backgroundColor: colors.vibrant.purple,
   },
   [`> ${buttonIconBefore}, > ${buttonIconAfter}`]: {
-    backgroundColor: colors.ultramarine['500'],
+    backgroundColor: colors.vibrant.purple,
   },
 });
 
 export const button_inverted = css({
-  color: colors.ultramarine['500'],
+  color: colors.vibrant.purple,
   [`> ${buttonLabel}`]: {
-    color: colors.ultramarine['500'],
+    color: colors.vibrant.purple,
     backgroundColor: 'transparent',
     border: '1.2px solid currentColor',
   },
   [`> ${buttonIconBefore}, > ${buttonIconAfter}`]: {
-    color: colors.ultramarine['500'],
+    color: colors.vibrant.purple,
     backgroundColor: 'transparent',
     border: '1.2px solid currentColor',
   },

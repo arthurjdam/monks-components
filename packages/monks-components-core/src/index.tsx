@@ -1,19 +1,20 @@
 import React from 'react';
 import { Global, css } from '@emotion/react';
-// import { typeStyle } from './styles/typeStyle';
-// import '@arthurjdam/monks-components-font';
+import { baseFont } from './styles/typeStyle';
+import { colors } from './styles';
+import '@arthurjdam/monks-components-font';
 
 const _Global = (): React.ReactElement => (
   <Global
     styles={{
       html: {
         fontSize: '62.5%',
-        // fontFamily: $baseFont,
+        fontFamily: baseFont,
         boxSizing: 'border-box',
         WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
         overscrollBehavior: 'none',
-        // backgroundColor: var(--themed-background, $colorTanTinted),
-        // color: var(--themed-foreground, $colorTanVibrant),
+        backgroundColor: colors.tinted.tan,
+        color: colors.vibrant.tan,
       },
       body: {
         textRendering: 'optimizeLegibility',
@@ -43,38 +44,11 @@ const _Global = (): React.ReactElement => (
         padding: 0,
         margin: 0,
       },
-
-      // '*': {
-      //   boxSizing: 'border-box',
-      // },
-      // 'html, body': {
-      //   height: '100%',
-      //   margin: 0,
-      //   padding: 0,
-      // },
-      // body: {
-      //   fontSize: 16,
-      //   fontFamily:
-      //     '"Monkvetica", Helvetica, Arial, sans-serif, "Apple Color Emoji"',
-      //   textRendering: 'optimizeLegibility',
-      //   msTextSizeAdjust: '100%',
-      //   WebkitTextSizeAdjust: '100%',
-      //   WebkitFontSmoothing: 'antialiased',
-      //   MozOsxFontSmoothing: 'grayscale',
-      // },
-      // ...typeStyle,
-      // h1: {
-      //   fontWeight: 800,
-      //   fontStretch: 'expanded',
-      // },
-      // h2: {
-      //   fontWeight: 800,
-      //   fontStretch: 'expanded',
-      // },
     }}
   />
 );
 
-export { default as Button } from './components/Button';
-
 export default _Global;
+
+export { default as Button } from './components/Button';
+export { default as Avatar } from './components/Avatar';
