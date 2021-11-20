@@ -13,8 +13,8 @@ const _Global = (): React.ReactElement => (
         boxSizing: 'border-box',
         WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
         overscrollBehavior: 'none',
-        backgroundColor: colors.tinted.tan,
-        color: colors.vibrant.tan,
+        backgroundColor: colors.pastel.tan,
+        color: colors.tinted.tan,
       },
       body: {
         textRendering: 'optimizeLegibility',

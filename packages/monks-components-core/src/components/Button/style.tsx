@@ -13,7 +13,7 @@ export const buttonIconAfter = '.iconAfter';
 export const buttonIconBefore = '.iconBefore';
 
 export const icon = css({
-  backgroundColor: colors.vibrant.tan,
+  backgroundColor: colors.tinted.tan,
   color: colors.white,
   width: size,
   height: size,
@@ -44,7 +44,7 @@ export const iconAfter = css({
 });
 
 export const label = css({
-  backgroundColor: colors.vibrant.tan,
+  backgroundColor: colors.tinted.tan,
   color: colors.white,
   height: size,
   borderRadius: '10rem',
@@ -106,14 +106,14 @@ export const button_primary = css({
 });
 
 export const button_inverted = css({
-  color: colors.vibrant.purple,
+  color: colors.tinted.tan,
   [`> ${buttonLabel}`]: {
-    color: colors.vibrant.purple,
+    color: colors.tinted.tan,
     backgroundColor: 'transparent',
     border: '1.2px solid currentColor',
   },
   [`> ${buttonIconBefore}, > ${buttonIconAfter}`]: {
-    color: colors.vibrant.purple,
+    color: colors.tinted.tan,
     backgroundColor: 'transparent',
     border: '1.2px solid currentColor',
   },
