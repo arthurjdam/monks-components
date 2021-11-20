@@ -52,3 +52,4 @@ export default _Global;
 
 export { default as Button } from './components/Button';
 export { default as Avatar } from './components/Avatar';
+export { colors, transitions } from './styles';
