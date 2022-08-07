@@ -2,8 +2,15 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import A2Icon from "../a2-icon/A2Icon";
 import A5Text from "../a5-text/A5Text";
+import {
+  beforeIconVariant,
+  labelVariant,
+  afterIconVariant,
+  iconInsideVariant,
+} from "./M1Button.variants";
 
-const ease = [0.2, 0, 0, 1];
+// const ease = [0.2, 0, 0, 1];
+const ease = "circOut";
 
 type BaseProps = {
   as?: "a" | "button";
@@ -52,105 +59,6 @@ const M1Button: React.FC<Props> = ({
   enableTransitionIn,
   href,
 }) => {
-  const beforeIconVariant = {
-    rest: {
-      scale: 0,
-      transition: {
-        ease,
-      },
-    },
-    hover: {
-      scale: 1,
-      transition: {
-        ease,
-      },
-    },
-  };
-  const labelVariant =
-    label && icon
-      ? {
-          rest: {
-            x: 0,
-            transition: {
-              ease,
-            },
-          },
-          hover: {
-            x: size === "medium" ? 70 : 40,
-            transition: {
-              ease,
-            },
-          },
-        }
-      : {
-          rest: {
-            x: 0,
-            transition: {
-              ease,
-            },
-          },
-          hover: {
-            x:
-              size === "medium"
-                ? [0, 20, 20, 0, 4, 0, 2, 0]
-                : [0, 10, 10, 0, 4, 0, 2, 0],
-            transition: {
-              duration: 0.8,
-              ease: "easeOut",
-            },
-          },
-        };
-  const afterIconVariant =
-    label && icon
-      ? {
-          rest: {
-            scale: 1,
-            transition: {
-              ease,
-            },
-          },
-          hover: {
-            scale: 0,
-            transition: {
-              ease,
-            },
-          },
-        }
-      : {
-          rest: {
-            x: 0,
-            transition: {
-              ease,
-            },
-          },
-          hover: {
-            x:
-              size === "medium"
-                ? [0, 20, 20, 0, 4, 0, 2, 0]
-                : [0, 10, 10, 0, 4, 0, 2, 0],
-            transition: {
-              duration: 0.8,
-              ease: "easeOut",
-            },
-          },
-        };
-
-  const iconInsideVariant = {
-    rest: {
-      x: 0,
-      transition: {
-        ease,
-      },
-    },
-    hover: {
-      x: [0, 60, -60, 60, -60, 0],
-      transition: {
-        ease,
-        times: [0, 0.3, 0.3, 0.7, 0.7, 1],
-      },
-    },
-  };
-
   const MotionA2Icon = motion(A2Icon);
   const Tag = motion(as || (href ? "a" : "button"));
   return (
@@ -179,7 +87,7 @@ const M1Button: React.FC<Props> = ({
             size === "small" && "px-4 h-[4rem] w-[4rem] min-w-[4rem]",
             size === "medium" && "p-12 h-[7rem] w-[7rem] min-w-[7rem]"
           )}
-          variants={beforeIconVariant}
+          variants={beforeIconVariant()}
         >
           <A2Icon
             name={icon}
@@ -198,7 +106,7 @@ const M1Button: React.FC<Props> = ({
             size === "small" && "px-4 h-[4rem] min-w-[4rem]",
             size === "medium" && "px-12 h-[7rem] min-w-[7rem]"
           )}
-          variants={labelVariant}
+          variants={labelVariant({ label, icon, size })}
         >
           <span
             //button-label-background
@@ -255,7 +163,7 @@ const M1Button: React.FC<Props> = ({
             size === "small" && "px-4 h-[4rem] w-[4rem] min-w-[4rem]",
             size === "medium" && "p-12 h-[7rem] w-[7rem] min-w-[7rem]"
           )}
-          variants={afterIconVariant}
+          variants={afterIconVariant({ label, icon, size })}
         >
           <MotionA2Icon
             name={icon}
@@ -263,7 +171,7 @@ const M1Button: React.FC<Props> = ({
               "absolute",
               size === "small" && "w-[5.6rem] h-[5.6rem]"
             )}
-            variants={iconInsideVariant}
+            variants={iconInsideVariant()}
           />
         </motion.span>
       )}

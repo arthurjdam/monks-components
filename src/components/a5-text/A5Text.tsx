@@ -35,12 +35,12 @@ const A5Text = React.forwardRef<
         size === "body-l" && [
           "text-xl",
           (variant === "sans-serif" || variant === "sans-serif-medium") &&
-            "tracking-[.01em]",
+            "tracking-tight",
         ],
         size === "body-m" && [
           "text-lg",
           (variant === "sans-serif" || variant === "sans-serif-medium") &&
-            "tracking-[.01em]",
+            "tracking-tight",
         ],
         size === "body-label" && "text-base",
         variant === "sans-serif" && "font-sans",

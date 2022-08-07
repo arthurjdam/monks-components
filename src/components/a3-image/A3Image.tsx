@@ -83,7 +83,7 @@ const A3Image = React.forwardRef<HTMLImageElement, Props>(
           whileInView: {
             scale: 1,
             ...(enableFadeIn && { opacity: 1 }),
-            transition: { duration: 0.4, ease: "easeOut" },
+            transition: { duration: 0.4, ease: "circOut" },
           },
         })}
       />

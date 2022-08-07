@@ -61,9 +61,9 @@ module.exports = {
       xs: "1.2rem",
       sm: "1.4rem",
       base: "1.6rem",
-      lg: "1.8rem",
-      xl: "2.0rem",
-      "2xl": "2.4rem",
+      lg: "3.2rem",
+      xl: "4.8rem",
+      "2xl": "7.2rem",
     },
     fontFamily: {
       sans: [
@@ -74,8 +74,23 @@ module.exports = {
         "sans-serif",
       ],
       serif: ["Morian Trial", "serif"],
+      extended: [
+        "Helvetica Now Text",
+        "Helvetica Now Display",
+        "Helvetica",
+        "Arial",
+        "sans-serif",
+      ],
+    },
+    letterSpacing: {
+      tighter: "-0.02em",
+      tight: "-0.01em",
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+      addVariant("em", "& > em");
+    },
+  ],
 };
