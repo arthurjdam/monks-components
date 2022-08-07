@@ -1,10 +1,9 @@
-// import { useEffect, useRef } from "react";
 import clsx from "clsx";
-// import { motion } from "framer-motion";
-// import { gsap } from "gsap";
+import { motion } from "framer-motion";
 import A2Icon from "../a2-icon/A2Icon";
 import A5Text from "../a5-text/A5Text";
-// import { fadeFromTo } from "../../animation/fade/fade";
+
+const ease = [0.2, 0, 0, 1];
 
 type BaseProps = {
   as?: "a" | "button";
@@ -47,51 +46,169 @@ const M1Button: React.FC<Props> = ({
   size = "medium",
   className,
   icon,
-  metadata,
   numberCount,
+  metadata,
+  outlined,
   enableTransitionIn,
   href,
 }) => {
-  // const containerRef = useRef<HTMLElement>(null);
-  // const labelRef = useRef<HTMLSpanElement>(null);
-  // const labelBackgroundRef = useRef<HTMLSpanElement>(null);
-  // const labelTextRef = useRef<HTMLSpanElement>(null);
+  const beforeIconVariant = {
+    rest: {
+      scale: 0,
+      transition: {
+        ease,
+      },
+    },
+    hover: {
+      scale: 1,
+      transition: {
+        ease,
+      },
+    },
+  };
+  const labelVariant =
+    label && icon
+      ? {
+          rest: {
+            x: 0,
+            transition: {
+              ease,
+            },
+          },
+          hover: {
+            x: size === "medium" ? 70 : 40,
+            transition: {
+              ease,
+            },
+          },
+        }
+      : {
+          rest: {
+            x: 0,
+            transition: {
+              ease,
+            },
+          },
+          hover: {
+            x:
+              size === "medium"
+                ? [0, 20, 20, 0, 4, 0, 2, 0]
+                : [0, 10, 10, 0, 4, 0, 2, 0],
+            transition: {
+              duration: 0.8,
+              ease: "easeOut",
+            },
+          },
+        };
+  const afterIconVariant =
+    label && icon
+      ? {
+          rest: {
+            scale: 1,
+            transition: {
+              ease,
+            },
+          },
+          hover: {
+            scale: 0,
+            transition: {
+              ease,
+            },
+          },
+        }
+      : {
+          rest: {
+            x: 0,
+            transition: {
+              ease,
+            },
+          },
+          hover: {
+            x:
+              size === "medium"
+                ? [0, 20, 20, 0, 4, 0, 2, 0]
+                : [0, 10, 10, 0, 4, 0, 2, 0],
+            transition: {
+              duration: 0.8,
+              ease: "easeOut",
+            },
+          },
+        };
 
-  // useEffect(() => {
-  //   const timeline = gsap.timeline({ paused: true });
-  //   containerRef.current &&
-  //     timeline.add(fadeFromTo(containerRef.current, { duration: 0.01 }));
+  const iconInsideVariant = {
+    rest: {
+      x: 0,
+      transition: {
+        ease,
+      },
+    },
+    hover: {
+      x: [0, 60, -60, 60, -60, 0],
+      transition: {
+        ease,
+        times: [0, 0.3, 0.3, 0.7, 0.7, 1],
+      },
+    },
+  };
 
-  //   console.log("play!");
-  //   timeline.play();
-  // }, []);
-
-  const Tag = as || (href ? "a" : "button");
+  const MotionA2Icon = motion(A2Icon);
+  const Tag = motion(as || (href ? "a" : "button"));
   return (
     // @ts-ignore [ts] JSX element type 'Component' does not have any construct or call signatures. [2604]
     <Tag
       className={clsx(
-        "inline-flex justify-center items-center whitespace-nowrap text-[color:var(--themed-background)]",
+        "inline-flex justify-center items-center whitespace-nowrap relative",
+        !outlined
+          ? "text-[color:var(--themed-background)]"
+          : "text-[color:var(--themed-foreground)]",
         className
       )}
+      initial="rest"
+      whileHover="hover"
+      animate="rest"
       // ref={containerRef}
     >
+      {icon && label && (
+        <motion.span
+          //button-icon
+          className={clsx(
+            "inline-flex items-center justify-center rounded-full shrink-0 overflow-hidden pointer-events-none origin-left absolute left-0",
+            !outlined
+              ? "bg-[color:var(--themed-foreground)]"
+              : "border border-[color:var(--themed-foreground)]",
+            size === "small" && "px-4 h-[4rem] w-[4rem] min-w-[4rem]",
+            size === "medium" && "p-12 h-[7rem] w-[7rem] min-w-[7rem]"
+          )}
+          variants={beforeIconVariant}
+        >
+          <A2Icon
+            name={icon}
+            className={clsx(
+              "absolute",
+              size === "small" && "w-[5.6rem] h-[5.6rem]"
+            )}
+          />
+        </motion.span>
+      )}
       {label && (
-        <span
+        <motion.span
           // button-label
           className={clsx(
             "inline-flex justify-center items-center rounded-full relative",
             size === "small" && "px-4 h-[4rem] min-w-[4rem]",
             size === "medium" && "px-12 h-[7rem] min-w-[7rem]"
           )}
-          // ref={labelRef}
+          variants={labelVariant}
         >
           <span
             //button-label-background
-            className="rounded-full absolute inset-0 origin-left bg-[color:var(--themed-foreground)]"
-            // ref={labelBackgroundRef}
+            className={clsx(
+              "rounded-full absolute inset-0 origin-left",
+              !outlined
+                ? "bg-[color:var(--themed-foreground)]"
+                : "border border-[color:var(--themed-foreground)]"
+            )}
           />
-          {/* <motion.div>asdf</motion.div> */}
           <A5Text
             // button-label-text
             copy={label}
@@ -120,45 +237,36 @@ const M1Button: React.FC<Props> = ({
               as="span"
               className={clsx(
                 "relative inline-flex justify-center align-center",
-                size === 'small' && 'py-1 px-2 ml-2 -mr-2',
-                size === 'medium' && 'py-2 px-4 ml-4 -mr-4',
+                size === "small" && "py-1 px-2 ml-2 -mr-2",
+                size === "medium" && "py-2 px-4 ml-4 -mr-4",
                 "before:opacity-50 before:absolute before:top-1/2 before:left-1/2 before:w-full before:h-full before:border-current before:border before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full"
               )}
             />
           )}
-          {/* cfA5TextTemplate(
-                {
-                  copy: metadata,
-                  size: 'body-label',
-                  variant: 'sans-serif-medium',
-                  as: 'span',
-                  className: 'button-label-metadata',
-                },
-                'button-label-metadata',
-              )} */}
-        </span>
+        </motion.span>
       )}
       {icon && (
-        <span
+        <motion.span
           className={clsx(
-            "inline-flex items-center justify-center rounded-full shrink-0 overflow-hidden pointer-events-none origin-left bg-[color:var(--themed-foreground)]",
-            size === "small" && "px-4 h-16 min-w-[4rem]",
-            size === "medium" && "p-12 h-28 min-w-[7rem]"
+            "inline-flex items-center justify-center rounded-full shrink-0 overflow-hidden pointer-events-none origin-right",
+            !outlined
+              ? "bg-[color:var(--themed-foreground)]"
+              : "border border-[color:var(--themed-foreground)]",
+            size === "small" && "px-4 h-[4rem] w-[4rem] min-w-[4rem]",
+            size === "medium" && "p-12 h-[7rem] w-[7rem] min-w-[7rem]"
           )}
+          variants={afterIconVariant}
         >
-          <A2Icon
+          <MotionA2Icon
             name={icon}
             className={clsx(
               "absolute",
               size === "small" && "w-[5.6rem] h-[5.6rem]"
             )}
+            variants={iconInsideVariant}
           />
-        </span>
+        </motion.span>
       )}
-      {/* ${icon &&
-          html`<span data-ref="button-icon-wrapper" class="button-icon icon">
-            ${cfA2IconTemplate({ name: icon }, 'button-icon')}
-          </span>`} */}
     </Tag>
   );
 };

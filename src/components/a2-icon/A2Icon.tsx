@@ -15,30 +15,27 @@ export interface Props {
   ariaHidden?: boolean;
 }
 
-const A2Icon: React.FC<Props> = ({
-  name,
-  className,
-  ariaLabel,
-  ariaHidden,
-}) => {
-  const Icon = React.lazy(() => import(`./jsx/${name}`));
+const A2Icon = React.forwardRef<HTMLSpanElement, Props>(
+  ({ name, className, ariaLabel, ariaHidden }, ref) => {
+    const Icon = React.lazy(() => import(`./jsx/${name}`));
 
-  return (
-    <span
-      className={clsx("w-28 h-28 inline-block align-middle", className)}
-      aria-hidden={ariaHidden}
-      aria-label={ariaLabel}
-    >
-      <React.Suspense
-        fallback={
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70"></svg>
-        }
+    return (
+      <span
+        className={clsx("w-28 h-28 inline-block align-middle", className)}
+        aria-hidden={ariaHidden}
+        aria-label={ariaLabel}
+        ref={ref}
       >
-        <Icon />
-      </React.Suspense>
-      {/* <img src={`/public/icons/${name}.svg`} alt={name} /> */}
-    </span>
-  );
-};
+        <React.Suspense
+          fallback={
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70"></svg>
+          }
+        >
+          <Icon />
+        </React.Suspense>
+      </span>
+    );
+  }
+);
 
 export default A2Icon;

@@ -18,6 +18,14 @@ const config: StorybookConfig = {
     },
   ],
   framework: "@storybook/react",
+  webpackFinal: async (config, { configType }) => {
+    config.module!.rules!.push({
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: "javascript/auto",
+    });
+    return config;
+  },
 };
 
 module.exports = config;
