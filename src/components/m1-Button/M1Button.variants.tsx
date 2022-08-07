@@ -87,18 +87,22 @@ export const afterIconVariant = ({ label, icon, size }: Partial<Props>) => {
       };
 };
 
-export const iconInsideVariant = () => ({
-  rest: {
-    x: 0,
-    transition: {
-      ease: "circOut",
-    },
-  },
-  hover: {
-    x: [0, 60, -60, 60, -60, 0],
-    transition: {
-      ease: "circOut",
-      times: [0, 0.3, 0.3, 0.7, 0.7, 1],
-    },
-  },
-});
+export const iconInsideVariant = ({ label, icon }: Partial<Props>) => {
+  return label && icon
+    ? undefined
+    : {
+        rest: {
+          x: 0,
+          transition: {
+            ease: "circOut",
+          },
+        },
+        hover: {
+          x: [0, 60, -60, 60, -60, 0],
+          transition: {
+            ease: "circOut",
+            times: [0, 0.3, 0.3, 0.7, 0.7, 1],
+          },
+        },
+      };
+};

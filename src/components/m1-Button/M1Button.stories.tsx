@@ -53,3 +53,7 @@ export const SmallOutlineLabelIcon: Story<typeof M1Button> = () => (
 export const SmallWithIconNumber: Story<typeof M1Button> = () => (
   <M1Button size="small" label="Label" numberCount={10} icon="arrow-right" />
 );
+
+export const SmallLabelIconTransparent: Story<typeof M1Button> = () => (
+  <M1Button size="small" transparent={true} label="Label" icon="close" />
+);

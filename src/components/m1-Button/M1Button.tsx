@@ -22,6 +22,7 @@ type BaseProps = {
   numberCount?: number;
   metadata?: string;
   outlined?: boolean;
+  transparent?: boolean;
   lightVariant?: boolean;
   responsiveBehaviour?:
     | "default"
@@ -56,6 +57,7 @@ const M1Button: React.FC<Props> = ({
   numberCount,
   metadata,
   outlined,
+  transparent,
   enableTransitionIn,
   href,
 }) => {
@@ -112,9 +114,11 @@ const M1Button: React.FC<Props> = ({
             //button-label-background
             className={clsx(
               "rounded-full absolute inset-0 origin-left",
-              !outlined
-                ? "bg-[color:var(--themed-foreground)]"
-                : "border border-[color:var(--themed-foreground)]"
+              !transparent && [
+                !outlined
+                  ? "bg-[color:var(--themed-foreground)]"
+                  : "border border-[color:var(--themed-foreground)]",
+              ]
             )}
           />
           <A5Text
@@ -123,7 +127,10 @@ const M1Button: React.FC<Props> = ({
             size="body-label"
             variant="sans-serif-medium"
             as="span"
-            className="relative"
+            className={clsx(
+              "relative",
+              transparent && "text-[color:var(--themed-foreground)]"
+            )}
             // ref={labelTextRef}
           />
           {metadata && (
@@ -171,7 +178,7 @@ const M1Button: React.FC<Props> = ({
               "absolute",
               size === "small" && "w-[5.6rem] h-[5.6rem]"
             )}
-            variants={iconInsideVariant()}
+            variants={iconInsideVariant({ label, icon })}
           />
         </motion.span>
       )}
