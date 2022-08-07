@@ -1,5 +1,6 @@
 // import { useEffect, useRef } from "react";
 import clsx from "clsx";
+// import { motion } from "framer-motion";
 // import { gsap } from "gsap";
 import A2Icon from "../a2-icon/A2Icon";
 import A5Text from "../a5-text/A5Text";
@@ -80,7 +81,7 @@ const M1Button: React.FC<Props> = ({
           // button-label
           className={clsx(
             "inline-flex justify-center items-center rounded-full relative",
-            // size === "small" && "px-4 h-16 min-w-[4rem]",
+            size === "small" && "px-4 h-[4rem] min-w-[4rem]",
             size === "medium" && "px-12 h-[7rem] min-w-[7rem]"
           )}
           // ref={labelRef}
@@ -90,6 +91,7 @@ const M1Button: React.FC<Props> = ({
             className="rounded-full absolute inset-0 origin-left bg-[color:var(--themed-foreground)]"
             // ref={labelBackgroundRef}
           />
+          {/* <motion.div>asdf</motion.div> */}
           <A5Text
             // button-label-text
             copy={label}
@@ -117,7 +119,9 @@ const M1Button: React.FC<Props> = ({
               variant="sans-serif-medium"
               as="span"
               className={clsx(
-                "relative inline-flex justify-center align-center py-2 px-4 ml-4 -mr-4",
+                "relative inline-flex justify-center align-center",
+                size === 'small' && 'py-1 px-2 ml-2 -mr-2',
+                size === 'medium' && 'py-2 px-4 ml-4 -mr-4',
                 "before:opacity-50 before:absolute before:top-1/2 before:left-1/2 before:w-full before:h-full before:border-current before:border before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-full"
               )}
             />
