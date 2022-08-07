@@ -11,53 +11,50 @@ export interface Props {
   ariaLabel?: string;
 }
 
-const A5Text: React.FC<Props> = ({
-  copy,
-  as = "p",
-  size = "body-l",
-  variant = "sans-serif",
-  className,
-  allowOutlines = false,
-  ariaLabel,
-}) => {
-  const As = as;
-  return (
-    <As
+const A5Text = React.forwardRef<
+  HTMLParagraphElement | HTMLSpanElement | HTMLLIElement | HTMLLegendElement,
+  Props
+>(
+  (
+    {
+      copy,
+      as: Tag = "p",
+      size = "body-l",
+      variant = "sans-serif",
+      className,
+      allowOutlines = false,
+      ariaLabel,
+    },
+    ref
+  ) => (
+    <Tag
+      //@ts-ignore [ts]
+      ref={ref}
       className={clsx(
-        className,
         "my-0",
-        size === "body-l"
-          ? [
-              "",
-              (variant === "sans-serif" || variant === "sans-serif-medium") &&
-                "tracking-[.01em]",
-            ]
-          : size === "body-m"
-          ? [
-              "",
-              (variant === "sans-serif" || variant === "sans-serif-medium") &&
-                "tracking-[.01em]",
-            ]
-          : size === "body-label"
-          ? ""
-          : null,
-        variant === "sans-serif"
-          ? ""
-          : variant === "sans-serif-medium"
-          ? ""
-          : variant === "serif"
-          ? ""
-          : variant === "caveat"
-          ? ""
-          : null,
-        allowOutlines && ["p-2", "relative", "no-underline"]
+        size === "body-l" && [
+          "text-xl",
+          (variant === "sans-serif" || variant === "sans-serif-medium") &&
+            "tracking-[.01em]",
+        ],
+        size === "body-m" && [
+          "text-lg",
+          (variant === "sans-serif" || variant === "sans-serif-medium") &&
+            "tracking-[.01em]",
+        ],
+        size === "body-label" && "text-base",
+        variant === "sans-serif" && "font-sans",
+        variant === "sans-serif-medium" && "font-sans font-medium",
+        variant === "serif" && "font-serif",
+        // variant === 'caveat' && '',
+        allowOutlines && "p-2 relative no-underline",
+        className
       )}
       aria-label={ariaLabel}
-    >
-      {copy || ""}
-    </As>
-  );
-};
+      children={copy || ""}
+    />
+  )
+);
 // A5Text.displayName = "a5-text";
 
 export default A5Text;

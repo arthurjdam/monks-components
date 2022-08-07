@@ -1,0 +1,48 @@
+import SvgIcon from "./SvgIcon";
+
+export default () => (
+  <SvgIcon>
+    <line
+      x1="43"
+      y1="35.5"
+      x2="35"
+      y2="35.5"
+      vectorEffect="non-scaling-stroke"
+    />
+    <line
+      x1="33"
+      y1="35.5"
+      x2="26"
+      y2="35.5"
+      vectorEffect="non-scaling-stroke"
+    />
+    <line
+      x1="37"
+      y1="30.5"
+      x2="26"
+      y2="30.5"
+      vectorEffect="non-scaling-stroke"
+    />
+    <line
+      x1="43"
+      y1="30.5"
+      x2="39"
+      y2="30.5"
+      vectorEffect="non-scaling-stroke"
+    />
+    <line
+      x1="43"
+      y1="40.5"
+      x2="31"
+      y2="40.5"
+      vectorEffect="non-scaling-stroke"
+    />
+    <line
+      x1="29"
+      y1="40.5"
+      x2="26"
+      y2="40.5"
+      vectorEffect="non-scaling-stroke"
+    />
+  </SvgIcon>
+);

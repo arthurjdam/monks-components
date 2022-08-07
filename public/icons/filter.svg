@@ -1,0 +1,8 @@
+<svg viewBox="0 0 70 70" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+<line x1="43" y1="31.5" x2="34" y2="31.5" vector-effect="non-scaling-stroke"/>
+<line x1="30" y1="31.5" x2="26" y2="31.5" vector-effect="non-scaling-stroke"/>
+<line x1="43" y1="38.5" x2="39" y2="38.5" vector-effect="non-scaling-stroke"/>
+<line x1="35" y1="38.5" x2="26" y2="38.5" vector-effect="non-scaling-stroke"/>
+<circle cx="31.5" cy="31.5" r="2" vector-effect="non-scaling-stroke"/>
+<circle cx="37.5" cy="38.5" r="2" vector-effect="non-scaling-stroke"/>
+</svg>

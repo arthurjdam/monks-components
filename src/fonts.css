@@ -1,0 +1,82 @@
+@font-face {
+  font-family: 'Helvetica Now Extended';
+  src: url('../public/fonts/HelveticaNowforMonks-ExtXBd.woff2')
+      format('woff2'),
+    url('../public/fonts/HelveticaNowforMonks-ExtXBd.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../public/fonts/HelveticaNowforMonks-TextMd.woff2')
+      format('woff2'),
+    url('../public/fonts/HelveticaNowforMonks-TextMd.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Now Text';
+  src: url('../public/fonts/HelveticaNowforMonks.woff2') format('woff2'),
+    url('../public/fonts/HelveticaNowforMonks.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('../public/fonts/HelveticaNowforMonks-Md.woff2') format('woff2'),
+    url('../public/fonts/HelveticaNowforMonks-Md.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Morian Trial';
+  src: url('../public/fonts/MorionTrial-Regular.woff2') format('woff2'),
+    url('../public/fonts/MorionTrial-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Morian Trial';
+  src: url('../public/fonts/MorionTrial-Italic.woff2') format('woff2'),
+    url('../public/fonts/MorionTrial-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Caveat';
+  src: url('../public/fonts/Caveat-Regular.woff2') format('woff2'),
+    url('../public/fonts/Caveat-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* @font-face {
+  font-family: 'Source Code Pro';
+  src: url('../public/fonts/SourceCodePro/SourceCodePro-Regular.ttf.woff2') format('woff2'),
+    url('../public/fonts/SourceCodePro/SourceCodePro-Regular.ttf.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('../public/fonts/SourceCodePro/SourceCodePro-Bold.ttf.woff2') format('woff2'),
+    url('../public/fonts/SourceCodePro/SourceCodePro-Bold.ttf.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+} */

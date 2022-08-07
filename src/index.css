@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-p {
-  font-size: 2rem;
+@import url("./fonts.css");
+
+@layer base {
+  :root {
+    --themed-background: #eae8e4;
+    /* --themed-background: 234 232 228; */
+    --themed-foreground: #2d2d2d;
+    /* --themed-foreground: 45 45 45; */
+    font-size: 10px;
+  }
+}
+
+body {
+  background: var(--themed-background);
+  @apply antialiased;
 }
